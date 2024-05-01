@@ -11,7 +11,7 @@
             "holeRadius": "0.5",
             "precision": "6"
         },
-        "10x10x10mm": {
+        "10x10-10mm": {
             "cellSize": "10",
             "cellsHigh": "10",
             "cellsWide": "10",
