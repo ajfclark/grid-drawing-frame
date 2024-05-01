@@ -1,33 +1,33 @@
 /* [Rendering] */
-// Rendering precision: The power of 2 to use as $fn
-renderingPrecision=6; // [4:10]
+// Precision: The power of 2 to use as $fn
+precision=6; // [4:10]
 
-/* [Cell parameters] */
-// Size of each cell
+/* [Cell] */
+// Size of each cell (mm)
 cellSize=10; // [1:50]
 // Width in cells
 cellsWide=10; // [1:50]
 // Height in cells
 cellsHigh=10; // [1:50]
 
-/* [Frame Parameters] */
+/* [Frame] */
 // Frame thickness: A multiple of your intended layer height works well
 frameThickness = 2; // [1:.1:10]
 // Frame width
 frameWidth = 10; // [.5:.1:20]
 
-/* [Hole Parameters]*/
+/* [Hole]*/
 // Hole radius: The size of the holes
 holeRadius = 0.5;
 // Hole margin: The inset from the inner edge of the frame to the holes
 holeMargin = 1; // [.1:.1:2]
 
-/* [Groove Parameters] */
+/* [Groove] */
 // Radius of the grooves: Do not exceed Frame Thickness. Half hole radius is a good starting point.
 grooveRadius = 0.25; // [.1:.05:5]
 
 /* [Hidden] */
-$fn=2^renderingPrecision;
+$fn=2^precision;
 
 module groove(w, h, z, s, r, m) {
 	x1=-w/2;

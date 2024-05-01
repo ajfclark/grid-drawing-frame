@@ -1,0 +1,27 @@
+{
+    "parameterSets": {
+        "20x20-10mm": {
+            "cellSize": "10",
+            "cellsHigh": "20",
+            "cellsWide": "20",
+            "frameThickness": "2",
+            "frameWidth": "10",
+            "grooveRadius": "0.25",
+            "holeMargin": "1",
+            "holeRadius": "0.5",
+            "precision": "6"
+        },
+        "10x10x10mm": {
+            "cellSize": "10",
+            "cellsHigh": "10",
+            "cellsWide": "10",
+            "frameThickness": "2",
+            "frameWidth": "10",
+            "grooveRadius": "0.25",
+            "holeMargin": "1",
+            "holeRadius": "0.5",
+            "precision": "6"
+        }
+    },
+    "fileFormatVersion": "1"
+}
