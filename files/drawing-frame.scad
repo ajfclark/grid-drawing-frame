@@ -29,23 +29,31 @@ grooveRadius = 0.25; // [.1:.05:5]
 /* [Hidden] */
 $fn=2^precision;
 
-module groove(w, h, z, s, r, m) {
+module groove(w, h, z, s, hr, r, m) {
 	x1=-w/2;
 	x2=-x1;
 	y1=-h/2;
 	y2=-y1;
 
+	for(offset=[x1-m-hr,x2+m+hr]) {
+		translate([offset,0,0])
+			rotate([90,0,0])
+				cylinder(h = h - 2*s, r=r, center=true);
+	}
+
 	for(i = [x1 + s: s : x2 - s]) {
-			translate([i,0,z/2])
+			translate([i,0,0])
 				rotate([90,0,0])
 					cylinder(h = h + r*2 + m*2, r=r, center=true);
 	}
 }
+
 module grooves(w, h, z, s, r, m) {
     groove(w=w,h=h,z=z,s=s,r=r,m=m);
     rotate([0,0,90])
     groove(w=h,h=w,z=z,s=s,r=r,m=m);
 }
+
 module hole(w, h, z, s, r, m) {
 	x1=-w/2;
 	x2=-x1;
@@ -62,14 +70,18 @@ module hole(w, h, z, s, r, m) {
 
 module cutout(w, h, z, s, hr, gr, m) {
     hole(w=w,h=h,z=z,s=s,r=hr,m=m);
-    groove(w=w,h=h,z=z,s=s,r=gr,m=m);
+    groove(w=w,h=h,z=z,s=s,hr=hr,r=gr,m=m);
 }
 
 module cutouts(w, h, z, s, hr, gr, m) {
     cube([w, h, z+.1], true);
-    cutout(w=w,h=h,z=z,s=s,hr=hr, gr=gr,m=m);
-    rotate([0,0,90])
-    cutout(w=h,h=w,z=z,s=s,hr=hr, gr=gr,m=m);
+	for(offset=[-z/2,z/2]) {
+		translate([0,0,offset]) {
+			cutout(w=w,h=h,z=z,s=s,hr=hr, gr=gr,m=m);
+			rotate([0,0,90])
+				cutout(w=h,h=w,z=z,s=s,hr=hr, gr=gr,m=m);
+		}
+	}
 }
 
 windowWidth=cellSize*cellsWide;
@@ -81,6 +93,7 @@ difference () {
     cube([overallWidth, overallHeight, frameThickness], true);
     cutouts(w=windowWidth,h=windowHeight,s=cellSize,z=frameThickness,hr=holeRadius,gr=grooveRadius,m=holeMargin);
 }
+
 echo(str("Cell size: ",cellSize,"mm x ",cellSize,"mm"));
 echo(str("Grid size: ",cellsWide," cells x ",cellsHigh," cells"));
 echo(str("Frame width: ",frameWidth,"mm"));

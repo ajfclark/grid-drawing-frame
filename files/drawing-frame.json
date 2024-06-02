@@ -24,10 +24,10 @@
         },
         "a5": {
             "cellSize": "10",
-            "cellsHigh": "20",
-            "cellsWide": "14",
+            "cellsHigh": "19",
+            "cellsWide": "13",
             "frameThickness": "2",
-            "frameWidth": "5",
+            "frameWidth": "10",
             "grooveRadius": "0.5",
             "holeMargin": "1",
             "holeRadius": "1",
