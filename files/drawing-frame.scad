@@ -18,7 +18,7 @@ frameWidth = 10; // [.5:.1:20]
 
 /* [Hole]*/
 // Hole radius: The size of the holes
-holeRadius = 0.5;
+holeRadius = 0.5; // [.1:.05:5]
 // Hole margin: The inset from the inner edge of the frame to the holes
 holeMargin = 1; // [.1:.1:2]
 
@@ -81,3 +81,7 @@ difference () {
     cube([overallWidth, overallHeight, frameThickness], true);
     cutouts(w=windowWidth,h=windowHeight,s=cellSize,z=frameThickness,hr=holeRadius,gr=grooveRadius,m=holeMargin);
 }
+echo(str("Cell size: ",cellSize,"mm x ",cellSize,"mm"));
+echo(str("Grid size: ",cellsWide," cells x ",cellsHigh," cells"));
+echo(str("Frame width: ",frameWidth,"mm"));
+echo(str("Total size: ",overallWidth,"mm x " ,overallHeight,"mm"));

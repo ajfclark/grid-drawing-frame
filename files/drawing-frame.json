@@ -21,6 +21,17 @@
             "holeMargin": "1",
             "holeRadius": "0.5",
             "precision": "6"
+        },
+        "a5": {
+            "cellSize": "10",
+            "cellsHigh": "20",
+            "cellsWide": "14",
+            "frameThickness": "2",
+            "frameWidth": "5",
+            "grooveRadius": "0.5",
+            "holeMargin": "1",
+            "holeRadius": "1",
+            "precision": "6"
         }
     },
     "fileFormatVersion": "1"
